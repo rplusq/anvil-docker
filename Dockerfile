@@ -12,5 +12,7 @@ ARG BLOCK_TIME
 ENV BLOCK_TIME=${BLOCK_TIME:-"3"}
 ARG FORK_BLOCK_NUMBER
 ENV FORK_BLOCK_NUMBER=${FORK_BLOCK_NUMBER:-"45456965"}
+ARG FORK_CHAIN_ID
+ENV FORK_CHAIN_ID=${FORK_CHAIN_ID:-"137"}
 
-ENTRYPOINT anvil --host 0.0.0.0 -p $PORT --fork-url $FORK_URL -b $BLOCK_TIME  --fork-block-number $FORK_BLOCK_NUMBER --auto-impersonate
+ENTRYPOINT anvil --host 0.0.0.0 -p $PORT --fork-url $FORK_URL -b $BLOCK_TIME  --fork-block-number $FORK_BLOCK_NUMBER --auto-impersonate --fork-chain-id $FORK_CHAIN_ID
